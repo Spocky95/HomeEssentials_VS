@@ -17,7 +17,6 @@ export class ProductService {
       map(response => response._embedded.products)
     );
   }
-
 }
 
 interface GetResponse {
