@@ -1,7 +1,3 @@
-<div class="alert alert-warning" role="alert">
-    A simple warning alert—check it out!
-</div>
-
 <table class="table table-primary table-hover">
     <thead class="table-dark">
         <tr>
@@ -14,27 +10,9 @@
 
     <tbody>
         <tr *ngFor="let tempProduct of products">
-            <td><img src={{tempProduct.imageUrl}} alt="Product Image"></td>
+            <td><img src="{{tempProduct.imageUrl}}" alt="Product Image" style="width: 10%;"></td>
             <td>{{tempProduct.name}}</td>
             <td>{{tempProduct.unitPrice | currency:'USD'}}</td>
             <td>{{tempProduct.unitsInStock}}</td>
     </tbody>
 </table>
-
-
-
-<!-- <p *ngFor="let tempProduct of products">
-    {{tempProduct.name}}
-     - {{tempProduct.unitPrice | currency:'USD'}}
-     - {{tempProduct.description}}
-     - {{tempProduct.active}} 
-     - {{tempProduct.unitsInStock}} 
-     - {{tempProduct.dateCreated}}
-     - {{tempProduct.dateCreated | date:'short'}} 
-</p> -->
-
-
-
-<style>
-    img {width: 5%}
-</style>
