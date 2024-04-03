@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* Color Palette */
+:root {
+    --primary-color: #EFD9CC;
+    --secondary-color: #06413D;
+    --tertiary-color: #FFC857;
+    --success-color: #00FF00;
+    --danger-color: #EF3E36;
+
+}
+
+/* Usage example */
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.button {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.alert {
+    background-color: var(--danger-color);
+    color: white;
+}
