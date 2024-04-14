@@ -1,3 +1,4 @@
+<!-- TOP NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light px-3" style="background-color: #06413D;">
     <a class="navbar-brand" href="#">
         <img src="assets/images/logo/svg/logo-color.svg" alt="Logo" style="object-fit: cover; object-position: center; height: 50px; width: 275px; ">
@@ -26,15 +27,26 @@
         </ul>
     </div>
 </nav>
-<nav>
-    <div class="flex-row-reverse" id="navbarNav">
-        <form class="form-inline my-2 my-lg-0" style="width: 30%; margin-left: auto;">
-            <div class="input-group" style="width: 100%;">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="">Search</button>
-                <div class="input-group-append">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 70%;">
+
+<!-- CATEGORY MENU -->
+<app-product-category-menu></app-product-category-menu>
+
+<!-- BREADCRAUMBS -->
+<app-breadcrumb></app-breadcrumb>
+
+<!-- SEARCHBAR -->
+<div class="container">
+        <div class="row d-flex justify-content-center align-items-center" style="height: 10vh;">
+            <div class="col-md-6">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="search" class="form-control form-input" placeholder="search...">
+                    <span class="left-pan"><i class="fa fa-microphone"></i></span>
                 </div>
             </div>
-        </form>
-    </div>
-</nav>
+        </div>
+</div>
+
+<!-- SEARCHBAR2 -->
+
+

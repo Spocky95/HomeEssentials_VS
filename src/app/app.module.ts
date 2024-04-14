@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ProductListComponent,
     NavbarComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    BreadcrumbComponent,
+    WelcomePageComponent,
+    ProductCategoryMenuComponent
   ],
   imports: [
     BrowserModule,
