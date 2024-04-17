@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomePageComponent},
-  { path: 'category/:id', component: ProductListComponent }, // Add route for ProductListComponent
-  { path: 'category', component: ProductListComponent }, // Add route for ProductListComponent
-  { path: 'products', component: ProductListComponent }, // Add route for ProductListComponent
-  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Redirect to /products
-  { path: '**', redirectTo: '/products', pathMatch: 'full' } // Redirect to /products
+  { path: 'products/:id', component: ProductDetailsComponent}, // Add route for ProductDetailsComponent reached by /products/:id
+  { path: 'search/:keyword', component: ProductListComponent}, // Add route for ProductListComponent reached by /search/:keyword
+  { path: 'welcome', component: WelcomePageComponent}, // Add route for WelcomePageComponent reached by /welcome
+  { path: 'category/:id', component: ProductListComponent }, // Add route for ProductListComponent reach by /category/:id
+  { path: 'category', component: ProductListComponent }, // Add route for ProductListComponent reached by /category
+  { path: 'products', component: ProductListComponent }, // Add route for ProductListComponent reached by /products
+  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Redirect to /products when path is empty
+  { path: '**', redirectTo: '/products', pathMatch: 'full' } // Redirect to /products when path is not found
 ];
 
 @NgModule({
