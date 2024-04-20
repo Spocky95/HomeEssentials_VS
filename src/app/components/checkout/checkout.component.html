@@ -1,0 +1,180 @@
+<div class="my-5 text-center" style="">
+    <form [formGroup]="checkoutFormGroup" action="" class="" (ngSubmit)="onSubmit()">
+        
+        <!-- Customer -->
+        <div formGroupName="customer" class="border">
+            <h3>Customer</h3>
+            <div style="width: 30%; margin-left: 30%;" class="text-center my-5">
+                <div class="row my-2">
+                    <div class="col-md-3"><label>First Name</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="firstName" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Last Name</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="lastName" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Email</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="email" class="form-control" id="firstName" required></div>
+                </div>
+            </div> 
+        </div>
+        <!-- Customer -->
+
+        <!-- Shipping Address -->
+        <div formGroupName="shippingAddress">
+            <h3>Shipping Address</h3>
+            <div style="width: 30%; margin-left: 30%;" class="text-center my-5">
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Country</label></div>
+                    <select formControlName="country" id="">
+                        <option value="United States">United States</option>
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Street</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="street" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>City</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="city" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>States</label></div>
+                    <select formControlName="state" id="">
+                        <option value="California">California</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Florida">Florida</option>
+                        <option value="New York">New York</option>
+                    </select>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Zip-Code</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
+                </div>
+            </div>
+        </div>
+        <!-- Shipping Address -->
+
+        <!-- Coppy Billing Address to Shipping Address -->
+        <div style="width: 30%; margin-left: 30%;" class="text-center my-5">
+            <label for="">
+                <input type="checkbox" id="flexCheckDefault" (change)="copyShippingAddressToBillingAddress($event)">
+                <span class="">Billing Address same as Shipping Address</span>
+            </label>
+        </div>
+        <!-- Coppy Billing Address to Shipping Address -->
+
+        <!-- Billing Address -->
+        <div formGroupName="billingAddress">
+            <h3>Billing Address</h3>
+            <div style="width: 30%; margin-left: 30%;" class="text-center my-5">
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Country</label></div>
+                    <select formControlName="country" id="">
+                        <option value="United States">United States</option>
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Street</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="street" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>City</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="city" class="form-control" id="firstName" required></div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>States</label></div>
+                    <select formControlName="state" id="">
+                        <option value="California">California</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Florida">Florida</option>
+                        <option value="New York">New York</option>
+                    </select>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-3"><label>Zip-Code</label></div>
+                    <div class="col-md-9"><input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
+                </div>
+            </div>
+        </div>
+        <!-- Billing Address -->
+
+        <!-- Credit Card -->
+
+        <div formGroupName="creditCard" style="width: 30%; margin-left: 30%;" class="text-center my-5">
+            <h3>Credit Card</h3>
+            <div>
+                <div>
+                    <label for="creditCardType">Credit Card Type</label>
+                    <select formControlName="creditCardType">
+                        <option value="Visa">Visa</option>
+                        <option value="MasterCard">MasterCard</option>
+                        <option value="American Express">American Express</option>
+                        <option value="Discover">Discover</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Card Holder Name</label>
+                    <input type="text" formControlName="nameOnCard" class="">
+                </div>
+                <div>
+                    <label>Credit Card Number</label>
+                    <input type="text" formControlName="cardNumber" class="">
+                </div>
+                <div>
+                    <label>Expiration Month</label>
+                    <select formControlName="expirationMonth">
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Expiration Year</label>
+                    <select formControlName="expirationYear">
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2030">2031</option>
+                        <option value="2030">2032</option>
+                        <option value="2030">2033</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Security Code</label>
+                    <input type="text" formControlName="securityCode" class="">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Credit Card -->
+        
+
+
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Purchase</button>
+        </div>
+    </form>
+</div>
