@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { first } from 'rxjs';
+import { CartService } from '../../services/cart.service';
+import { ChechoutFormService } from '../../services/chechout-form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -9,11 +11,20 @@ import { first } from 'rxjs';
 })
 export class CheckoutComponent implements OnInit{
 
-  
-  
+  totalPrice: number = 0;
+  totalQuantity: number = 0;
+
+
+  creditCardYears: number[] = [];
+  creditCardMonths: number[] = [];
+
+
   checkoutFormGroup: FormGroup = new FormGroup({});
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private cartService: CartService,
+              private checkoutFormService: ChechoutFormService
+  ) { }
   
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -42,9 +53,27 @@ export class CheckoutComponent implements OnInit{
         cardNumber: [''],
         securityCode: [''],
         expirationMonth: [''],
-        expirationYear: ['']
+        expirationYear: [''],
+        creditCardType: ['']
       })
     });
+    // populate credit card months
+    const startMonth: number = new Date().getMonth() + 1;
+    console.log("startMonth: " + startMonth);
+
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => {
+        console.log("Retrieved credit card months: " + JSON.stringify(data));
+        this.creditCardMonths = data;
+      }
+    );
+
+    this.checkoutFormService.getCreditCardYears().subscribe(
+      data => {
+        console.log("Retrieved credit card years: " + JSON.stringify(data));
+        this.creditCardYears = data;
+      }
+    );
   }
 
   copyShippingAddressToBillingAddress(event: any) {
@@ -61,5 +90,24 @@ export class CheckoutComponent implements OnInit{
     console.log(this.checkoutFormGroup.get('customer')!.value);
     console.log('Shipping Address: ' + this.checkoutFormGroup.get('shippingAddress')!.value);
   }
-    
+
+  handleMonthsAndYears() {
+    const creditCardFormGroup = this.checkoutFormGroup.get('creditCard');
+    const currentYear: number = new Date().getFullYear();
+    const selectedYear: number = Number(creditCardFormGroup?.value.expirationYear);
+
+    let startMonth: number;
+    if (currentYear === selectedYear) {
+      startMonth = new Date().getMonth() + 1;
+    } else {
+      startMonth = 1;
+    }
+
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => {
+        console.log("Retrieved credit card months: " + JSON.stringify(data));
+        this.creditCardMonths = data;
+      }
+    );
+  }
 }

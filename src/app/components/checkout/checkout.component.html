@@ -110,7 +110,7 @@
 
         <div formGroupName="creditCard" style="width: 30%; margin-left: 30%;" class="text-center my-5">
             <h3>Credit Card</h3>
-            <div>
+            <div class="text-center my-5">
                 <div>
                     <label for="creditCardType">Credit Card Type</label>
                     <select formControlName="creditCardType">
@@ -131,33 +131,18 @@
                 <div>
                     <label>Expiration Month</label>
                     <select formControlName="expirationMonth">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                        <option value="07">07</option>
-                        <option value="08">08</option>
-                        <option value="09">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
+                        <option *ngFor="let Month of creditCardMonths">
+                            {{Month}}
+                        </option>
                     </select>
                 </div>
                 <div>
                     <label>Expiration Year</label>
-                    <select formControlName="expirationYear">
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-                        <option value="2030">2031</option>
-                        <option value="2030">2032</option>
-                        <option value="2030">2033</option>
+                    <select formControlName="expirationYear" (change)="handleMonthsAndYears()">
+                        <option *ngFor="let Year of creditCardYears">
+                            {{Year}}
+                        </option>
+
                     </select>
                 </div>
                 <div>
@@ -166,15 +151,24 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- Credit Card -->
-        
-
-
-
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Purchase</button>
-        </div>
+        <!-- Credit Card -->   
     </form>
+        <!-- Order Summary -->
+        <div>
+            <h3>Order Summary</h3>
+            <div class="text-center my-5">
+                <div>
+                    <p>Total Price: {{totalPrice | currency:'USD'}}</p>
+                    <p>Total Quantity: {{totalQuantity}}</p>
+                    <p>Shipping: FREE</p>
+                    <p>Tax: {{totalPrice * 0.1 | currency:'USD'}}</p>
+                    <p>Grand Total: {{totalPrice + (totalPrice * 0.1) | currency:'USD'}}</p>
+                </div>
+        </div>
+        <!-- Order Summary -->
+
+        <!-- Displaying a variable from the cart-details component -->
+
+        
+        <!-- Submit Button -->
 </div>
