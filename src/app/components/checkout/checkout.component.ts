@@ -5,6 +5,8 @@ import { CartService } from '../../services/cart.service';
 import { ChechoutFormService } from '../../services/chechout-form.service';
 import { Country } from '../../common/country';
 import { State } from '../../common/state';
+import { CustomValidators } from '../../validators/validators';
+
 
 @Component({
   selector: 'app-checkout',
@@ -36,17 +38,29 @@ export class CheckoutComponent implements OnInit{
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        firstName: new FormControl('', [Validators.required,
+                                        Validators.minLength(2), 
+                                        CustomValidators.notOnlyWhitespace]),
+        lastName: new FormControl('', [Validators.required, 
+                                       Validators.minLength(2), 
+                                       CustomValidators.notOnlyWhitespace]),
         //TODO: check regex tutorial for email validation
-        email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+        email: new FormControl('', [Validators.required, 
+                                    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'), 
+                                    CustomValidators.notOnlyWhitespace])
       }),
       shippingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: ['']
+        street: new FormControl('', [Validators.required,
+                                     Validators.minLength(2), 
+                                     CustomValidators.notOnlyWhitespace]),
+        city: new FormControl('', [Validators.required,
+                                   Validators.minLength(2), 
+                                   CustomValidators.notOnlyWhitespace]),
+        state: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required]),
+        zipCode: new FormControl('', [Validators.required,
+                                      Validators.minLength(2), 
+                                      CustomValidators.notOnlyWhitespace])
       }),
       billingAddress: this.formBuilder.group({
         street: [''],
@@ -96,7 +110,12 @@ export class CheckoutComponent implements OnInit{
   get firstName() { return this.checkoutFormGroup.get('customer')!.get('firstName'); }
   get lastName() { return this.checkoutFormGroup.get('customer')!.get('lastName'); }
   get email() { return this.checkoutFormGroup.get('customer')!.get('email'); }
-
+  
+  get shippingAddressStreet() { return this.checkoutFormGroup.get('shippingAddress.street'); }
+  get shippingAddressCity() { return this.checkoutFormGroup.get('shippingAddress.city'); }
+  get shippingAddressState() { return this.checkoutFormGroup.get('shippingAddress.state'); }
+  get shippingAddressCountry() { return this.checkoutFormGroup.get('shippingAddress.country'); }
+  get shippingAddressZipCode() { return this.checkoutFormGroup.get('shippingAddress.zipCode'); }
 
 
   copyShippingAddressToBillingAddress(event: any) {
