@@ -16,7 +16,7 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Last Name</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="lastName" class="form-control" id="firstName" required>
+                    <div class="col-md-9"><input type="text" formControlName="lastName" class="form-control" id="lastName" required>
 
                         <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger my-5">
                             <div *ngIf="lastName?.errors?.['required'] || lastName?.errors?.['minlength'] || lastName?.errors?.['notOnlyWhitespace']">Last Name is required and must be at least 2 characters long</div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Email</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="email" class="form-control" id="firstName" required>
+                    <div class="col-md-9"><input type="text" formControlName="email" class="form-control" id="email" required>
                         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger my-5">
                             <div *ngIf="email?.errors?.['required'] || email?.errors?.['pattern']">Email is required and must be a vaild format</div>
                         </div>
@@ -55,14 +55,14 @@
                     <div class="col-md-3"><label>Street</label></div>
                     <div class="col-md-9"><input type="text" formControlName="street" class="form-control" id="firstName" required></div>
                     <div *ngIf="shippingAddressStreet?.invalid && (shippingAddressStreet?.dirty || shippingAddressStreet?.touched)" class="alert alert-danger my-5">
-                        <div *ngIf="shippingAddressStreet?.errors?.['required']">Street is required</div>
+                        <div *ngIf="shippingAddressStreet?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Street is required</div>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>City</label></div>
                     <div class="col-md-9"><input type="text" formControlName="city" class="form-control" id="firstName" required></div>
                     <div *ngIf="shippingAddressCity?.invalid && (shippingAddressCity?.dirty || shippingAddressCity?.touched)" class="alert alert-danger my-5">
-                        <div *ngIf="shippingAddressCity?.errors?.['required']">City is required</div>
+                        <div *ngIf="shippingAddressCity?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">City is required</div>
                     </div>
                 </div>
                 <div class="row my-2">
@@ -73,7 +73,7 @@
                         </option>
                     </select>
                     <div *ngIf="shippingAddressState?.invalid && (shippingAddressState?.dirty || shippingAddressState?.touched)" class="alert alert-danger my-5">
-                        <div *ngIf="shippingAddressState?.errors?.['required']">State is required</div>
+                        <div *ngIf="shippingAddressState?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">State is required</div>
                     </div>
                 </div>
                 <div class="row my-2">
@@ -140,20 +140,27 @@
             <div class="text-center my-5">
                 <div>
                     <label for="creditCardType">Credit Card Type</label>
-                    <select formControlName="creditCardType">
+                    <select formControlName="cardType">
                         <option value="Visa">Visa</option>
                         <option value="MasterCard">MasterCard</option>
-                        <option value="American Express">American Express</option>
-                        <option value="Discover">Discover</option>
                     </select>
+                    <div *ngIf="creditCardType?.invalid && (creditCardType?.dirty || creditCardType?.touched)" class="alert alert-danger my-5">
+                        <div *ngIf="creditCardType?.errors?.['required']">Credit Card Type is required</div>
+                    </div>
                 </div>
                 <div>
                     <label>Card Holder Name</label>
                     <input type="text" formControlName="nameOnCard" class="">
                 </div>
+                <div *ngIf="creditCardNameOnCard?.invalid && (creditCardNameOnCard?.dirty || creditCardNameOnCard?.touched)" class="alert alert-danger my-5">
+                    <div *ngIf="creditCardNameOnCard?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Card Holder Name is required</div>
+                </div>
                 <div>
                     <label>Credit Card Number</label>
                     <input type="text" formControlName="cardNumber" class="">
+                    <div *ngIf="creditCardcardNumber?.invalid && (creditCardcardNumber?.dirty || creditCardcardNumber?.touched)" class="alert alert-danger my-5">
+                        <div *ngIf="creditCardNameOnCard?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Card Holder Name is required</div>
+                    </div>
                 </div>
                 <div>
                     <label>Expiration Month</label>
@@ -169,12 +176,14 @@
                         <option *ngFor="let Year of creditCardYears">
                             {{Year}}
                         </option>
-
                     </select>
                 </div>
                 <div>
                     <label>Security Code</label>
                     <input type="text" formControlName="securityCode" class="">
+                    <div *ngIf="creditCardSecurityCode?.invalid && (creditCardSecurityCode?.dirty || creditCardType?.touched)" class="alert alert-danger my-5">
+                        <div *ngIf="creditCardSecurityCode?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Security Code and Expiration Month/Year are required</div>
+                    </div>
                 </div>
             </div>
         </div>
