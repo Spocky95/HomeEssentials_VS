@@ -7,7 +7,8 @@
             <div style="width: 30%; margin-left: 30%;" class="text-center my-5">
                 <div class="row my-2">
                     <div class="col-md-3"><label>First Name</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="firstName" class="form-control" id="firstName" required>
+                    <div class="col-md-9">
+                        <input formControlName="firstName" type="text" required>
                         <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger my-5">
                             <div *ngIf="firstName?.errors?.['required'] || firstName?.errors?.['minlength'] || firstName?.errors?.['notOnlyWhitespace']">First Name is required and must be at least 2 characters long</div>
 
@@ -16,7 +17,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Last Name</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="lastName" class="form-control" id="lastName" required>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="lastName" class="form-control" id="lastName" required>
 
                         <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger my-5">
                             <div *ngIf="lastName?.errors?.['required'] || lastName?.errors?.['minlength'] || lastName?.errors?.['notOnlyWhitespace']">Last Name is required and must be at least 2 characters long</div>
@@ -26,7 +28,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Email</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="email" class="form-control" id="email" required>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="email" class="form-control" id="email" required>
                         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger my-5">
                             <div *ngIf="email?.errors?.['required'] || email?.errors?.['pattern']">Email is required and must be a vaild format</div>
                         </div>
@@ -53,14 +56,16 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Street</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="street" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="street" class="form-control" id="firstName" required></div>
                     <div *ngIf="shippingAddressStreet?.invalid && (shippingAddressStreet?.dirty || shippingAddressStreet?.touched)" class="alert alert-danger my-5">
                         <div *ngIf="shippingAddressStreet?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Street is required</div>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>City</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="city" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="city" class="form-control" id="firstName" required></div>
                     <div *ngIf="shippingAddressCity?.invalid && (shippingAddressCity?.dirty || shippingAddressCity?.touched)" class="alert alert-danger my-5">
                         <div *ngIf="shippingAddressCity?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">City is required</div>
                     </div>
@@ -78,7 +83,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Zip-Code</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
                     <div *ngIf="shippingAddressZipCode?.invalid && (shippingAddressZipCode?.dirty || shippingAddressZipCode?.touched)" class="alert alert-danger my-5">
                         <div *ngIf="shippingAddressZipCode?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Zip-Code is required</div>
                     </div>
@@ -111,11 +117,13 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Street</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="street" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="street" class="form-control" id="firstName" required></div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>City</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="city" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="city" class="form-control" id="firstName" required></div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>States</label></div>
@@ -127,7 +135,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-3"><label>Zip-Code</label></div>
-                    <div class="col-md-9"><input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
+                    <div class="col-md-9">
+                        <input type="text" formControlName="zipCode" class="form-control" id="firstName" required></div>
                 </div>
             </div>
         </div>
@@ -159,7 +168,7 @@
                     <label>Credit Card Number</label>
                     <input type="text" formControlName="cardNumber" class="">
                     <div *ngIf="creditCardcardNumber?.invalid && (creditCardcardNumber?.dirty || creditCardcardNumber?.touched)" class="alert alert-danger my-5">
-                        <div *ngIf="creditCardNameOnCard?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Card Holder Name is required</div>
+                        <div *ngIf="creditCardNameOnCard?.errors?.['required'] || ['minlength'] || ['notOnlyWhitespace']">Card Number is required</div>
                     </div>
                 </div>
                 <div>
