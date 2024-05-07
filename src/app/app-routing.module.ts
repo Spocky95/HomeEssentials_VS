@@ -5,10 +5,21 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OktaAuthModule, OKTA_AUTH } from '@okta/okta-angular';
+
+import {
+  OktaCallbackComponent,
+  OKTA_CONFIG 
+} from '@okta/okta-angular';
+import { LoginComponent } from './components/login/login.component';
 
 
 
 const routes: Routes = [
+  
+  { path: 'login/callback', component: OktaCallbackComponent}, 
+  { path: 'login', component: LoginComponent}, 
+
   { path: 'checkout', component: CheckoutComponent}, // Add route for CartDetailsComponent reached by /cart-details
   { path: 'cart-details', component: CartDetailsComponent}, // Add route for CartDetailsComponent reached by /cart-details
   { path: 'products/:id', component: ProductDetailsComponent}, // Add route for ProductDetailsComponent reached by /products/:id
