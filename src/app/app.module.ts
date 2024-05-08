@@ -32,6 +32,7 @@ import {
 //Tutaj albo do app-routing.modules.ts <Start>
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product.service';
+import { MembersPageComponent } from './components/members-page/members-page.component';
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
@@ -54,7 +55,8 @@ const oktaAuth = new OktaAuth(oktaConfig);
     CartDetailsComponent,
     CheckoutComponent,
     LoginComponent,
-    LoginStatusComponent
+    LoginStatusComponent,
+    MembersPageComponent
   ],
   imports: [
     BrowserModule,
