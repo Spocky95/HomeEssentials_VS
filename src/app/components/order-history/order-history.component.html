@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <div class="container-fluid">
+            <h3>Order History</h3>
+            <div *ngIf="orderHistoryList.length > 0">
+                <table>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Order Status</th>
+                        <th>Order Total</th>
+                        <th>Order Details</th>
+                    </tr>
+                    <tr *ngFor="let order of orderHistoryList">
+                        <td>{{order.id}}</td>
+                        <td>{{order.orderTrackingNumber}}</td>
+                        <td>{{order.totalPrice}}</td>
+                        <td>{{order.totalQuantity}}</td>
+                        <td>{{order.dateCreated}}</td>
+                        <!-- <td><a [routerLink]="['/order-details', order.orderId]">View Details</a></td> -->
+                    </tr>
+                </table>
+            </div>
+            <div *ngIf="orderHistoryList.length == 0" class="alert alert-warning col-md-12">
+                <h4>No Orders Found</h4>
+            </div>
+        </div>
+    </div>
+</div>

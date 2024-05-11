@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import OktaAuth from '@okta/okta-auth-js';
 import { Router } from '@angular/router';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 
 
@@ -35,8 +36,12 @@ const routes: Routes = [
   
   { path: 'login/callback', component: OktaCallbackComponent}, 
 
-  { path: 'login', component: LoginComponent}, 
+  { path: 'login', component: LoginComponent}, // Add route for LoginComponent reached by /login
+
+  { path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard],
+          data: {onAuthRequired: sendToLoginPage}}, // Add route for ProductListComponent reached by /products
   
+
 
   { path: 'checkout', component: CheckoutComponent}, // Add route for CartDetailsComponent reached by /cart-details
   { path: 'cart-details', component: CartDetailsComponent}, // Add route for CartDetailsComponent reached by /cart-details
