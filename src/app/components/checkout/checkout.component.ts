@@ -28,6 +28,7 @@ export class CheckoutComponent implements OnInit{
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
 
+  storage: Storage = sessionStorage;
 
 
   checkoutFormGroup: FormGroup = new FormGroup({});
@@ -48,6 +49,9 @@ export class CheckoutComponent implements OnInit{
     
     this.reviewCartDetails();
 
+    // read the user's email address from browser storage
+    const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
+
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: new FormControl('', [Validators.required,
@@ -57,8 +61,8 @@ export class CheckoutComponent implements OnInit{
                                        Validators.minLength(2), 
                                        CustomValidators.notOnlyWhitespace]),
         //TODO: check regex tutorial for email validation
-        email: new FormControl('', [Validators.required, 
-                                    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'), 
+        email: new FormControl(theEmail, [Validators.required, 
+                                    Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),
                                     CustomValidators.notOnlyWhitespace])
       }),
       shippingAddress: this.formBuilder.group({
