@@ -15,7 +15,7 @@
                 {{tempCartItem.id}}
             </td>
             <td>
-                <img src="{{tempCartItem.imageUrl}}" class="img-responsive" style="width: 100%; height: 250px; object-fit: contain;" alt="">
+                <img *ngIf="tempCartItem" src="{{tempCartItem.imageUrl}}" class="img-responsive" style="width: 100%; height: 250px; object-fit: contain;" alt="">
             </td>
             <td>
                 {{tempCartItem.name}}

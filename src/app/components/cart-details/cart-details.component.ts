@@ -37,7 +37,11 @@ export class CartDetailsComponent implements OnInit{
   }
 
   incrementUnits(theCartItem: CartItem) {
-    this.cartService.addToCart(theCartItem);
+    if (theCartItem) {
+      this.cartService.addToCart(theCartItem);
+    } else {
+      console.error('theCartItem is undefined');
+    }
   }
   decrementUnits(theCartItem: CartItem) {
     this.cartService.deleteFromCart(theCartItem);

@@ -40,7 +40,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
 
 
 export const environment = {
-  production: false,
+  production: false, // Prod mode is disabled, prod mode is reducing logging messages, eliminates dead code etc.
   homeessentialsApiUrl: 'https://localhost:4090/api'
 }
 
