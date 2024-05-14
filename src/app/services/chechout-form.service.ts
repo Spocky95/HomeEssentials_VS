@@ -4,13 +4,14 @@ import { Observable, of } from 'rxjs';
 import { Country } from '../common/country';
 import { map } from 'rxjs/operators';
 import { State } from '../common/state';
+import { environment } from '../app.module';
 @Injectable({
   providedIn: 'root'
 })
 export class ChechoutFormService {
 
-  private countriesUrl = 'http://localhost:8080/api/countries';
-  private statesUrl = 'http://localhost:8080/api/states';
+  private countriesUrl = environment.homeessentialsApiUrl + '/countries';
+  private statesUrl = environment.homeessentialsApiUrl + '/states';
 
 
   constructor(private httpClient: HttpClient) { }

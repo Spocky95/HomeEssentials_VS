@@ -29,7 +29,7 @@ import {
   OKTA_CONFIG 
 } from '@okta/okta-angular';
 
-//Tutaj albo do app-routing.modules.ts <Start>
+
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product.service';
 import { MembersPageComponent } from './components/members-page/members-page.component';
@@ -38,8 +38,11 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
-//Tutaj albo do app-routing.modules.ts <End>
 
+export const environment = {
+  production: false,
+  homeessentialsApiUrl: 'https://localhost:4090/api'
+}
 
 @NgModule({
   declarations: [
@@ -77,4 +80,5 @@ const oktaAuth = new OktaAuth(oktaConfig);
     
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -20,7 +20,6 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 
 
 
-
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
   // Use injector to access any service available within your application
   const router = injector.get(Router);
