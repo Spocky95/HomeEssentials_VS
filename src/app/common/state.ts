@@ -4,8 +4,8 @@
 // Właściwość name to nazwa stanu, która jest typu string i domyślnie ustawiona na pusty string.
 // Klasa posiada konstruktor bezparametrowy, który nie wykonuje żadnych operacji.
 export class State {
-  id: number = 0;
-  name: string = '';
+    public id: number = 0;
+    public name: string = '';
 
   constructor() {}
 }

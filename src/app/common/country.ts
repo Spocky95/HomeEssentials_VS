@@ -5,9 +5,9 @@
 // Właściwość name to nazwa kraju, również domyślnie ustawiona na pusty string.
 // Klasa posiada konstruktor bezparametrowy, który nie wykonuje żadnych operacji.
 export class Country {
-  id: number = 0;
-  code: string = '';
-  name: string = '';
+    public id: number = 0;
+    public code: string = '';
+    public name: string = '';
 
   constructor() {}
 }

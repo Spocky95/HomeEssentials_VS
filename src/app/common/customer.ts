@@ -5,7 +5,7 @@
 // Właściwość email to adres email klienta, domyślnie ustawiony na pusty string.
 // Klasa nie posiada konstruktora, więc wszystkie właściwości są inicjalizowane domyślnymi wartościami.
 export class Customer {
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
+    public firstName: string = '';
+    public lastName: string = '';
+    public email: string = '';
 }

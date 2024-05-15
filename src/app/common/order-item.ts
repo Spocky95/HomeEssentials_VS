@@ -9,10 +9,10 @@
 import { CartItem } from './cart-item';
 
 export class OrderItem {
-  imageUrl: string = '';
-  unitPrice: number = 0;
-  quantity: number = 0;
-  productId: string = '';
+    public imageUrl: string = '';
+    public unitPrice: number = 0;
+    public quantity: number = 0;
+    public productId: string = '';
 
   constructor(cartItem: CartItem) {
     this.imageUrl = cartItem.imageUrl;

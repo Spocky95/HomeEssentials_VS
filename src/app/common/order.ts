@@ -4,6 +4,6 @@
 // Właściwość totalPrice to całkowita cena zamówienia, również domyślnie ustawiona na 0.
 // Klasa nie posiada konstruktora, więc wszystkie właściwości są inicjalizowane domyślnymi wartościami.
 export class Order {
-  totalQuantity: number = 0;
-  totalPrice: number = 0;
+    public totalQuantity: number = 0;
+    public totalPrice: number = 0;
 }
