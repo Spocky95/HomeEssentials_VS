@@ -1,25 +1,24 @@
 /* Color Palette */
 :root {
-    --primary-color: #EFD9CC;
-    --secondary-color: #06413D;
-    --tertiary-color: #FFC857;
-    --success-color: #00FF00;
-    --danger-color: #EF3E36;
-
+  --primary-color: #efd9cc;
+  --secondary-color: #06413d;
+  --tertiary-color: #ffc857;
+  --success-color: #00ff00;
+  --danger-color: #ef3e36;
 }
 
 /* Usage example */
 body {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .button {
-    background-color: var(--success-color);
-    color: white;
+  background-color: var(--success-color);
+  color: white;
 }
 
 .alert {
-    background-color: var(--danger-color);
-    color: white;
+  background-color: var(--danger-color);
+  color: white;
 }

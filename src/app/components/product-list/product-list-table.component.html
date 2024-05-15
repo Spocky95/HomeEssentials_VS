@@ -1,18 +1,25 @@
 <table class="table table-primary table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>Product</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Unit In Stock</th>
-        </tr>
-    </thead>
+  <thead class="table-dark">
+    <tr>
+      <th>Product</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Unit In Stock</th>
+    </tr>
+  </thead>
 
-    <tbody>
-        <tr *ngFor="let tempProduct of products">
-            <td><img src="{{tempProduct.imageUrl}}" alt="Product Image" style="width: 10%;"></td>
-            <td>{{tempProduct.name}}</td>
-            <td>{{tempProduct.unitPrice | currency:'USD'}}</td>
-            <td>{{tempProduct.unitsInStock}}</td>
-    </tbody>
+  <tbody>
+    <tr *ngFor="let tempProduct of products">
+      <td>
+        <img
+          src="{{ tempProduct.imageUrl }}"
+          alt="Product Image"
+          style="width: 10%"
+        />
+      </td>
+      <td>{{ tempProduct.name }}</td>
+      <td>{{ tempProduct.unitPrice | currency : "USD" }}</td>
+      <td>{{ tempProduct.unitsInStock }}</td>
+    </tr>
+  </tbody>
 </table>

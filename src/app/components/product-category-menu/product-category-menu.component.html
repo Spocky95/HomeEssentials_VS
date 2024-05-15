@@ -13,14 +13,17 @@
 <!-- Dynamicznie generowane menu kategorii produktów -->
 Dynamicznie generowane menu kategorii produktów
 <div class="container my-3 mx-0">
-    <nav class="row">
-        <ul class="col" style="display: flex; flex-direction: row;">
-            <li *ngFor="let tempProductCategory of productCategories">
-                <a class="nav-link px-5" routerLink="/category/{{tempProductCategory.id}}" routerLink="active-link">
-                    {{tempProductCategory.categoryName}}
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <nav class="row">
+    <ul class="col" style="display: flex; flex-direction: row">
+      <li *ngFor="let tempProductCategory of productCategories">
+        <a
+          class="nav-link px-5"
+          routerLink="/category/{{ tempProductCategory.id }}"
+          routerLink="active-link"
+        >
+          {{ tempProductCategory.categoryName }}
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
-

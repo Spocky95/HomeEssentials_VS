@@ -1,13 +1,22 @@
 <div class="container">
-    <div class="row d-flex justify-content-center align-items-center" style="height: 10vh;">
-        <div class="col-md-6">
-            <div class="form">
-                <!-- <i class="fa fa-search"></i> -->
-                <input #myInput type="text" class="form-control form-input" placeholder="search..." (keyup.enter)="doSearch(myInput.value)">
-                <!-- <span class="left-pan"><i class="fa fa-microphone"></i></span> -->
-            </div>
-        </div>
+  <div
+    class="row d-flex justify-content-center align-items-center"
+    style="height: 10vh"
+  >
+    <div class="col-md-6">
+      <div class="form">
+        <!-- <i class="fa fa-search"></i> -->
+        <input
+          #myInput
+          type="text"
+          class="form-control form-input"
+          placeholder="search..."
+          (keyup.enter)="doSearch(myInput.value)"
+        />
+        <!-- <span class="left-pan"><i class="fa fa-microphone"></i></span> -->
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Path: src/app/components/search/search.component.ts -->

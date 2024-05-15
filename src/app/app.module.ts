@@ -1,10 +1,28 @@
+// W tym fragmencie kodu mamy główny moduł Angulara o nazwie AppModule.
+// Moduł ten importuje różne inne moduły, komponenty i serwisy, które są używane w aplikacji.
+
+// Dekorator @NgModule określa metadane dla modułu.
+
+// Właściwość declarations zawiera listę komponentów, które są deklarowane w tym module.
+// Właściwość imports zawiera listę modułów, które są importowane do tego modułu.
+// Właściwość providers zawiera listę serwisów, które są dostarczane przez ten moduł.
+// Właściwość bootstrap zawiera listę komponentów, które są inicjalizowane, gdy aplikacja jest uruchamiana.
+
+// W konstruktorze wstrzykujemy zależność od HttpClient, który jest używany do wykonywania zapytań HTTP.
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { HTTP_INTERCEPTORS, HttpClientModule, withFetch } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  withFetch,
+} from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,11 +42,7 @@ import { OktaAuthModule, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 
-import {
-  OktaCallbackComponent,
-  OKTA_CONFIG 
-} from '@okta/okta-angular';
-
+import { OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product.service';
@@ -38,11 +52,10 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
-
 export const environment = {
   production: false, // Prod mode is disabled, prod mode is reducing logging messages, eliminates dead code etc.
-  homeessentialsApiUrl: 'https://localhost:4090/api'
-}
+  homeessentialsApiUrl: 'https://localhost:4090/api',
+};
 
 @NgModule({
   declarations: [
@@ -62,7 +75,7 @@ export const environment = {
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,15 +83,20 @@ export const environment = {
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule
+    OktaAuthModule,
   ],
-  providers: [ProductService,
-    {provide: OKTA_CONFIG, useValue: { oktaAuth}},
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+  providers: [
+    ProductService,
+    { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
     provideClientHydration(),
-    provideHttpClient(withFetch())],
-    
-  bootstrap: [AppComponent]
-})
+    provideHttpClient(withFetch()),
+  ],
 
-export class AppModule { }
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
