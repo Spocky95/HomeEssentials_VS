@@ -1,44 +1,44 @@
 <app-search></app-search>
 <div class="product-list-container">
-        <div class="row">
-            <div *ngFor="let tempProduct of products" class="col-md-3">
-                <div class="product-slot">
-                    <a routerLink="/products/{{ tempProduct.id }}">
-                        <img
-                          src="{{ tempProduct.imageUrl }}"
-                          class="img-responsive"
-                          style="width: 100%; height: 250px; object-fit: contain"
-                          alt=""/>
-                      </a>
-                      <a routerLink="/products/{{ tempProduct.id }}">
-                        <p>{{ tempProduct.name }}</p>
-                      </a>
-                      <p>
-                        <strong>{{ tempProduct.unitPrice | currency : "USD" }}</strong>
-                      </p>
-                      <div *ngIf="tempProduct.active">
-                        <button
-                          (click)="addToCart(tempProduct)"
-                          class="btn btn-primary btn-sm add-to-cart-button"
-                        >
-                          Add to cart
-                        </button>
-                      </div>
-                      <div *ngIf="!tempProduct.active">
-                        <button class="btn btn-secondary btn-sm">out of stock</button>
-                      </div>
-                </div>
-            </div>
-            <ngb-pagination
-            [(page)]="thePageNumber"
-            [pageSize]="thePageSize"
-            [collectionSize]="theTotalElements"
-            [maxSize]="8"
-            [boundaryLinks]="true"
-            (pageChange)="listProducts()"
-            class="mt-5"
+  <div class="row f-flex justify-content-between">
+    <div *ngFor="let tempProduct of products" class="col-md-3">
+      <div class="product-slot">
+        <a routerLink="/products/{{ tempProduct.id }}">
+          <img
+            src="{{ tempProduct.imageUrl }}"
+            class="img-responsive"
+            style="width: 100%; height: auto; object-fit: contain"
+            alt=""
+          />
+        </a>
+        <a routerLink="/products/{{ tempProduct.id }}">
+          <p>{{ tempProduct.name }}</p>
+        </a>
+        <p>
+          <strong>{{ tempProduct.unitPrice | currency : "USD" }}</strong>
+        </p>
+        <div *ngIf="tempProduct.active">
+          <button
+            (click)="addToCart(tempProduct)"
+            class="btn btn-primary btn-sm add-to-cart-button"
           >
-          </ngb-pagination>
+            Add to cart
+          </button>
         </div>
+        <div *ngIf="!tempProduct.active">
+          <button class="btn btn-secondary btn-sm">out of stock</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngb-pagination
+    [(page)]="thePageNumber"
+    [pageSize]="thePageSize"
+    [collectionSize]="theTotalElements"
+    [maxSize]="8"
+    [boundaryLinks]="true"
+    (pageChange)="listProducts()"
+    class="mt-5"
+  >
+  </ngb-pagination>
 </div>
-

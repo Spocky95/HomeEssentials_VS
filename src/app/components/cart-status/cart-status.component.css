@@ -24,8 +24,8 @@
     color: #906d32;
     border-color: #906d32;
 }
-.btn:before,
-.btn:after{
+/* .btn:before,
+.btn:after{ */
     /* content:"";
     width: 16px;
     height: 16px;
@@ -37,21 +37,21 @@
     border-style: solid;
     border-color: #906d32;
     transition: all 0.3s ease-in-out; */
-}
-.btn:after{
+/* }
+.btn:after{ */
     /* top: auto;
     left: auto;
     bottom: -6px;
     right: -6px;
     border-width: 0 2px 2px 0; */
-}
-.btn:hover:before,
-.btn:hover:after{
+/* } */
+/* .btn:hover:before,
+.btn:hover:after{ */
     /* opacity: 1;
     width: calc(100% + 12px);
     height: calc(100% + 12px);
     border-color: #906d32; */
-}
+/* } */
 
 .btn-outline-cart{
     padding: 0 0 0 0px;
