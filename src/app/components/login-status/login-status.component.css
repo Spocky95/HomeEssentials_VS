@@ -79,6 +79,7 @@
   --bs-btn-disabled-border-color: #efd9cc;
   --bs-gradient: none;
   --bs-border-width: 0px;
+  font-size: 12px !important;
 }
 
 .btn-login {
@@ -127,4 +128,25 @@
   width: calc(100% + 12px);
   height: calc(100% + 12px);
   border-color: #906d32;
+}
+
+.login-status-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 1199px) {
+  .login-status-header-welcome {
+    display: none;
+  }
+}
+
+@media (max-width: 867px) {
+  .login-status-header {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

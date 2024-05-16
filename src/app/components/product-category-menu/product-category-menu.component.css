@@ -1,0 +1,30 @@
+.nav-link {
+    color: #06413D;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 7px;
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+
+}
+
+ul {
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.ul:hover {
+    color: #906d32;
+    border-color: #906d32;
+}
+
+.nav-link:hover{
+    color: #906d32;
+    border-color: #906d32;
+}

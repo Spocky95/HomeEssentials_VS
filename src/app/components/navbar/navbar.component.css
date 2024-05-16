@@ -11,3 +11,38 @@
   color: #000;
   border-bottom: 2px solid #ccc;
 }
+
+@media (max-width: 867px) {
+  .base-nav-class {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (max-width: 867px) {
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-weight: bold;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 15px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 868px) {
+  .nav-item {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .nav-item {
+    display: flex;
+  }
+}
+
+.navbar-toggler {
+  margin-right: 12px;
+}
