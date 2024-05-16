@@ -15,24 +15,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../common/cart-item';
-
 @Component({
   selector: 'app-cart-details',
   templateUrl: './cart-details.component.html',
   styleUrl: './cart-details.component.css',
 })
 export class CartDetailsComponent implements OnInit {
-  cartItems: any[] = [];
+  // Tablica do przechowywania elementów koszyka
+  cartItems: CartItem[] = [];
+  // Zmienne do przechowywania całkowitej ceny i ilości
   totalPrice = 0;
   totalQuantity = 0;
-
+  // Wstrzykiwanie zależności CartService
   constructor(private cartService: CartService) {}
-
+  // Metoda cyklu życia wywoływana po utworzeniu komponentu
   ngOnInit(): void {
     this.listCartDetails();
   }
-
   listCartDetails() {
+    // Implementacja
     this.cartItems = this.cartService.cartItems;
 
     this.cartService.totalPrice.subscribe((data) => (this.totalPrice = data));
@@ -43,7 +44,6 @@ export class CartDetailsComponent implements OnInit {
 
     this.cartService.computeCartTotals();
   }
-
   incrementUnits(theCartItem: CartItem) {
     if (theCartItem) {
       this.cartService.addToCart(theCartItem);

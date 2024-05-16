@@ -1,8 +1,3 @@
-/*
-    Copy from styles.css -> .au-btn-submit
-    Rename as .security-btn
-    Change border to 10px
-*/
 .security-btn {
   position: relative;
   right: 0;
@@ -15,10 +10,20 @@
   background: #205b8d;
 }
 
-/*
-    Copy from styles.css -> .form-header
-    Rename as .login-status-header
-*/
+.btn {
+  color: #c6994d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  color: #906d32;
+}
+
 .login-status-header {
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,11 +32,24 @@
   display: flex;
 }
 
-/*
-    Copy from styles.css -> .au-input
-    Rename as .login-status-user-info
-    - remove 'solid', 'font-size', 'color'
-*/
+.function-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .login-status-user-info {
   line-height: 43px;
   border: 1px;
@@ -43,4 +61,70 @@
   -o-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.btn-outline-light {
+  --bs-btn-color: #efd9cc;
+  --bs-btn-border-color: #efd9cc;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #efd9cc;
+  --bs-btn-hover-border-color: #efd9cc;
+  --bs-btn-focus-shadow-rgb: 248, 249, 250;
+  --bs-btn-active-color: #efd9cc;
+  --bs-btn-active-bg: #efd9cc;
+  --bs-btn-active-border-color: #efd9cc;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #efd9cc;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #efd9cc;
+  --bs-gradient: none;
+  --bs-border-width: 0px;
+}
+
+.btn-login {
+  color: #c6994d;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 7px;
+  padding: 8px 15px;
+  border: 2px solid transparent;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.btn-login:hover {
+  color: #906d32;
+  border-color: #906d32;
+}
+.btn-login:before,
+.btn-login:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
+  border-style: solid;
+  border-color: #906d32;
+  transition: all 0.3s ease-in-out;
+}
+.btn-login:after {
+  top: auto;
+  left: auto;
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
+}
+.btn-login:hover:before,
+.btn-login:hover:after {
+  opacity: 1;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-color: #906d32;
 }

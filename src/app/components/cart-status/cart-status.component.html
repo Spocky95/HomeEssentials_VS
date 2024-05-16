@@ -1,11 +1,10 @@
-<div class="center">
-  <a routerLink="/cart-details" style="margin-left: 500px">
-    <button class="btn btn-primary">
+<div class="center" style="display: flex; justify-content: flex-end;">
+  <a routerLink="/cart-details">
+    <button class="btn btn-outline-cart" style="padding: 10px 20px;">
       <span>{{ totalPrice | currency : "USD" }}</span>
-    </button>
-    <button class="btn btn-secondary" style="margin-left: -6px">
-      <span>{{ totalQuantity }}</span>
+      <span style="margin-left: 10px;">{{ totalQuantity }}</span>
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </button>
   </a>
-  <i class="fa fa-shopping-cart mx-1 pt-1" aria-hidden="true"></i>
 </div>
+

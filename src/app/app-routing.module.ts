@@ -18,9 +18,10 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OktaAuthModule, OKTA_AUTH, OktaAuthGuard } from '@okta/okta-angular';
 
-import { OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
+import { OKTA_CONFIG } from '@okta/okta-angular';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 import { LoginComponent } from './components/login/login.component';
-import { MembersPageComponent } from './components/members-page/members-page.component';
+import { ProfilePageComponent as ProfilePageComponent } from './components/profile-page/profile-page.component';
 import OktaAuth from '@okta/okta-auth-js';
 import { Router } from '@angular/router';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
@@ -35,8 +36,8 @@ function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
 
 const routes: Routes = [
   {
-    path: 'members',
-    component: MembersPageComponent,
+    path: 'profile',
+    component: ProfilePageComponent,
     canActivate: [OktaAuthGuard],
     data: { onAuthRequired: sendToLoginPage },
   },

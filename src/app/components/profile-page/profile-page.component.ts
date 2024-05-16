@@ -11,10 +11,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-members-page',
-  templateUrl: './members-page.component.html',
-  styleUrl: './members-page.component.css',
+  selector: 'app-profile-page',
+  templateUrl: './profile-page.component.html',
+  styleUrl: './profile-page.component.css',
 })
-export class MembersPageComponent {
+export class ProfilePageComponent {
   constructor() {}
 }

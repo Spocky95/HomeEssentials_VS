@@ -46,7 +46,7 @@ import { OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product.service';
-import { MembersPageComponent } from './components/members-page/members-page.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 const oktaConfig = myAppConfig.oidc;
@@ -74,7 +74,7 @@ export const environment = {
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
-    MembersPageComponent,
+    ProfilePageComponent,
     OrderHistoryComponent,
   ],
   imports: [
@@ -100,3 +100,6 @@ export const environment = {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+// 61268f18f7ae274990466782c0e92bbfbe3373a3

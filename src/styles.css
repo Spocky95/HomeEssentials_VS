@@ -7,7 +7,7 @@
   --danger-color: #ef3e36;
 }
 
-/* Usage example */
+/* Global Styles */
 body {
   background-color: var(--primary-color);
   color: var(--secondary-color);

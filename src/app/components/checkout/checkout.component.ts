@@ -263,8 +263,10 @@ export class CheckoutComponent implements OnInit {
     let order = new Order();
     order.totalPrice = this.totalPrice;
     order.totalQuantity = this.totalQuantity;
+
     // Pobierz elementy koszyka
     const cartItems = this.cartService.cartItems;
+
     // Utwórz orderItems na podstawie elementów koszyka
     let orderItems: OrderItem[] = cartItems.map(
       (tempCartItem) => new OrderItem(tempCartItem)
@@ -272,8 +274,10 @@ export class CheckoutComponent implements OnInit {
 
     // Ustawienie zakupu
     let purchase = new Purchase();
+
     // Wypełnienie zakupu - klient
     purchase.customer = this.checkoutFormGroup.controls['customer'].value;
+    
     // Wypełnienie zakupu - adres dostawy
     purchase.shippingAddress =
       this.checkoutFormGroup.controls['shippingAddress'].value;

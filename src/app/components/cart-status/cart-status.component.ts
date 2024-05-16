@@ -17,23 +17,28 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-cart-status',
   templateUrl: './cart-status.component.html',
-  styleUrl: './cart-status.component.css',
+  styleUrls: ['./cart-status.component.css'],
 })
 export class CartStatusComponent implements OnInit {
+  // Zmienne do przechowywania całkowitej ilości i ceny
   totalQuantity: number = 0;
   totalPrice: number = 0.0;
 
+  // Wstrzykiwanie zależności CartService
   constructor(private cartService: CartService) {}
 
+  // Metoda cyklu życia wywoływana po utworzeniu komponentu
   ngOnInit(): void {
     this.updateCartStatus();
   }
 
-  updateCartStatus() {
-    console.log(`compute cart total price and total quantity`);
+  // Metoda do aktualizacji statusu koszyka
+  updateCartStatus(): void {
+    // Subskrypcja do totalQuantity z CartService
     this.cartService.totalQuantity.subscribe(
       (data: number) => (this.totalQuantity = data)
     );
+    // Subskrypcja do totalPrice z CartService
     this.cartService.totalPrice.subscribe(
       (data: number) => (this.totalPrice = data)
     );
