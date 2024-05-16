@@ -1,9 +1,16 @@
-<div>
-  <div style="align-items: center">
-    <h3>Profile info</h3>
-    <p>Random text</p>
+<div *ngIf="isAuthenticated && userFullName" class="main">
+  <div class="">
+    <h5 class="">Welcome back, <strong>{{ userFullName }}</strong>!</h5>
+    <div class="ms-5 mt-4">
+      <p class="text">Email: <strong>{{ userEmail }}</strong></p>
+      <p class="text">Username: <strong>{{ userUsername }}</strong></p>
+      <p class="text">Given Name: <strong>{{ userGivenName }}</strong></p>
+      <p class="text">Family Name: <strong>{{ userFamilyName }}</strong></p>
+      <p class="text">Locale: <strong>{{ userLocale }}</strong></p>
+      <p class="text">Zoneinfo: <strong>{{ userZoneinfo }}</strong></p>
+      <p class="text">Updated At: <strong>{{ userUpdatedAt }}</strong></p>
+      <p class="text">Email Verified: <strong>{{ userEmailVerified }}</strong></p>
+      <!-- <p class="card-text">Auth: <strong>{{ userAuth }}</strong></p> -->
+    </div>
   </div>
 </div>
-<!-- <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info login-status-header-welcome" style="color: #efd9cc;">
-  Welcome back, <strong>{{ userFullName }}</strong>!
-</div> -->

@@ -27,7 +27,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
@@ -41,7 +40,6 @@ import { LoginComponent } from './components/login/login.component';
 import { OktaAuthModule, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
-
 import { OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
@@ -63,7 +61,6 @@ export const environment = {
     ProductListComponent,
     NavbarComponent,
     FooterComponent,
-    SidebarComponent,
     BreadcrumbComponent,
     WelcomePageComponent,
     ProductCategoryMenuComponent,
@@ -100,6 +97,5 @@ export const environment = {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 
 // 61268f18f7ae274990466782c0e92bbfbe3373a3
