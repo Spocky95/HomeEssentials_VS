@@ -1,5 +1,5 @@
 <app-search></app-search>
-<div class="product-list-container">
+<div class="product-list-container mt-3">
   <div class="row f-flex justify-content-between">
     <div *ngFor="let tempProduct of products" class="col-md-3">
       <div class="product-slot">
@@ -31,6 +31,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="d-flex justify-content-center">
   <ngb-pagination
     [(page)]="thePageNumber"
     [pageSize]="thePageSize"
@@ -38,7 +40,7 @@
     [maxSize]="8"
     [boundaryLinks]="true"
     (pageChange)="listProducts()"
-    class="mt-5"
+    class="my-pagination my-5"
   >
   </ngb-pagination>
 </div>

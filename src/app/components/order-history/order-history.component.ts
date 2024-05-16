@@ -18,7 +18,7 @@ import { OrderHistoryService } from '../../services/order-history.service';
 
 @Component({
   selector: 'app-order-history',
-  templateUrl: './order-history.component.html',
+  templateUrl: './order-history2.component.html',
   styleUrls: ['./order-history.component.css'],
 })
 export class OrderHistoryComponent implements OnInit {

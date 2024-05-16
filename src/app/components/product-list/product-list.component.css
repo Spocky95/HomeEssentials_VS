@@ -7,14 +7,14 @@
   justify-content: space-between;
   max-width: 100vh;
   margin: auto;
-  width: 50%;
+  width: 75%;
 }
 
 .product-slot {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0px;
+  margin: 0 20px 0px 0px;
   padding: 10px;
   text-align: center;
 }
@@ -29,4 +29,35 @@
 .img-responsive {
   margin: auto;
   min-width: none;
+}
+
+
+.my-pagination .page-link {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+.my-pagination .page-item.active .page-link {
+  background-color: #343a40;
+  color: #f8f9fa;
+  margin-top: 100px!important;
+}
+
+::ng-deep .pagination .page-link {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+::ng-deep .pagination .page-item.active .page-link {
+  background-color: #06413D;
+  color: #f8f9fa;
+}
+
+::ng-deep .pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  --bs-pagination-active-border-color: #06413D;
+}
+::ng-deep .pagination .page-item.active .page-link:focus {
+  box-shadow: 0 0 0 0.2rem #06413d;
+  border-color: #EFD9CC;
 }

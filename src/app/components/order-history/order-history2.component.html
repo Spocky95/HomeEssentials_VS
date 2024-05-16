@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row container-main">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr class="active">
+                <th>Order ID</th>
+                <th>Order Tracking Number</th>
+                <th>Order Price</th>
+                <th>Order Quantity</th>
+                <th>Order Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orderHistoryList">
+                <td>{{ order.id }}</td>
+                <td>{{ order.orderTrackingNumber }}</td>
+                <td>{{ order.totalPrice }}</td>
+                <td>{{ order.totalQuantity }}</td>
+                <td>{{ order.dateCreated }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
