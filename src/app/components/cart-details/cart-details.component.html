@@ -1,9 +1,8 @@
-<hr>
-<div *ngIf="cartItems.length > 0">
+<hr />
+<div class="main" *ngIf="cartItems.length > 0">
   <table class="table">
     <thead>
       <tr class="text-center">
-        <th scope="col">id</th>
         <th scope="col">Image</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
@@ -12,9 +11,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let tempCartItem of cartItems" class="text-center">
-        <td class="align-items-center">
-          {{ tempCartItem.id }}
-        </td>
         <td>
           <img
             *ngIf="tempCartItem"
@@ -75,6 +71,10 @@
     </tbody>
   </table>
 </div>
-<div *ngIf="cartItems.length == 0" class="text-center my-5 alert alert-light">
-  <h3>Your cart is empty!</h3>
+<div *ngIf="cartItems.length == 0">
+  <div class="main">
+    <div class="text-center my-5 alert alert-light">
+      <h3>Your cart is empty!</h3>
+    </div>
+  </div>
 </div>
