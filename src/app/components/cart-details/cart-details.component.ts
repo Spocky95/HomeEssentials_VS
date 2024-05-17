@@ -17,7 +17,7 @@ import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../common/cart-item';
 @Component({
   selector: 'app-cart-details',
-  templateUrl: './cart-details.component.html',
+  templateUrl: './cart-details2.component.html',
   styleUrl: './cart-details.component.css',
 })
 export class CartDetailsComponent implements OnInit {

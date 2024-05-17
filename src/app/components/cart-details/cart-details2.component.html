@@ -60,19 +60,31 @@
       </tr>
     </tbody>
   </table>
-  <div class="summary-container">
-    <div class="summary">
-      <p> Total Price: {{ totalPrice | currency : "USD" }}</p>
-      <p> Total Quantity: {{ totalQuantity }}</p>
-      <p> Shipping: FREE</p>
-      <p> Tax: {{ totalPrice * 0.1 | currency : "USD" }}</p>
-      <p>
-        Grand Total: {{ totalPrice + totalPrice * 0.1 | currency : "USD" }}
-      </p>
-      <button routerLink="/checkout" class="btn btn-login">Checkout</button>
-    </div>
-  </div>
+  <table class="order-summarize-table">
+    <thead class="ms-5">
+      <tr class="">
+        <th>Total Price:</th>
+        <th>Total Quantity:</th>
+        <th>Shipping</th>
+        <th>Tax:</th>
+        <th>Grand Total:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ totalPrice | currency : "USD" }}</td>
+        <td>{{ totalQuantity }}</td>
+        <td>FREE</td>
+        <td>{{ totalPrice * 0.23 | currency : "USD" }}</td>
+        <td>{{ totalPrice + totalPrice * 0.1 | currency : "USD" }}</td>
+        <td class="btn-login-desktop">
+          <button routerLink="/checkout" class="btn btn-login">Checkout</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<button routerLink="/checkout" class="btn btn-login btn-mobile">Checkout</button>
 <div *ngIf="cartItems.length == 0">
   <div class="main">
     <div class="text-center my-5 alert alert-light">

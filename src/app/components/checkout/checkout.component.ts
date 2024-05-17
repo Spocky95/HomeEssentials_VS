@@ -30,7 +30,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
+  templateUrl: './checkout2.component.html',
   styleUrl: './checkout.component.css',
 })
 export class CheckoutComponent implements OnInit {
@@ -61,15 +61,17 @@ export class CheckoutComponent implements OnInit {
 
     // odczytaj adres e-mail użytkownika z pamięci przeglądarki
     const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
+    const theFirstName = JSON.parse(this.storage.getItem('userFirstName')!);
+    const theLastName = JSON.parse(this.storage.getItem('userLastName')!);
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-      firstName: new FormControl('', [
+      firstName: new FormControl(theFirstName, [
         Validators.required,
         Validators.minLength(2),
         CustomValidators.notOnlyWhitespace,
       ]),
-      lastName: new FormControl('', [
+      lastName: new FormControl(theLastName, [
         Validators.required,
         Validators.minLength(2),
         CustomValidators.notOnlyWhitespace,
