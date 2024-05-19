@@ -30,7 +30,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
-  templateUrl: './checkout2.component.html',
+  templateUrl: './checkout4.component.html',
   styleUrl: './checkout.component.css',
 })
 export class CheckoutComponent implements OnInit {

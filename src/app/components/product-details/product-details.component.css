@@ -19,9 +19,11 @@
 
 .btn-outline-back {
     color: #06413d;
+    margin-top: 50px;
 
 }
 .btn-outline-back:hover {
     color: #906d32;
     border-color: gray;
+  
   }
