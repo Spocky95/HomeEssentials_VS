@@ -1,14 +1,3 @@
-// W tym fragmencie kodu mamy moduł routingu Angulara o nazwie AppRoutingModule.
-// Moduł ten definiuje trasy dla aplikacji.
-
-// Importujemy różne komponenty, które będą używane jako komponenty docelowe dla tras.
-// Importujemy również różne moduły i serwisy związane z Okta do obsługi uwierzytelniania.
-
-// Funkcja sendToLoginPage() jest używana do przekierowania użytkownika do strony logowania. Wykorzystuje ona usługę Router do nawigacji.
-
-// Zmienna routes to tablica obiektów Routes, które definiują trasy dla aplikacji.
-// Każda trasa składa się z ścieżki (path) i komponentu docelowego (component).
-// Niektóre trasy mają również strażników (canActivate), którzy decydują, czy trasa jest dostępna dla użytkownika.
 import { Injector, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -17,7 +6,6 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OktaAuthModule, OKTA_AUTH, OktaAuthGuard } from '@okta/okta-angular';
-
 import { OKTA_CONFIG } from '@okta/okta-angular';
 import { OktaCallbackComponent } from '@okta/okta-angular';
 import { LoginComponent } from './components/login/login.component';
@@ -27,10 +15,7 @@ import { Router } from '@angular/router';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
-  // Use injector to access any service available within your application
   const router = injector.get(Router);
-
-  // Redirect the user to your custom login page
   router.navigate(['/login']);
 }
 
@@ -41,28 +26,24 @@ const routes: Routes = [
     canActivate: [OktaAuthGuard],
     data: { onAuthRequired: sendToLoginPage },
   },
-
   { path: 'login/callback', component: OktaCallbackComponent },
-
-  { path: 'login', component: LoginComponent }, // Add route for LoginComponent reached by /login
-
+  { path: 'login', component: LoginComponent },
   {
     path: 'order-history',
     component: OrderHistoryComponent,
     canActivate: [OktaAuthGuard],
     data: { onAuthRequired: sendToLoginPage },
-  }, // Add route for ProductListComponent reached by /products
-
-  { path: 'checkout', component: CheckoutComponent }, // Add route for CartDetailsComponent reached by /cart-details
-  { path: 'cart-details', component: CartDetailsComponent }, // Add route for CartDetailsComponent reached by /cart-details
-  { path: 'products/:id', component: ProductDetailsComponent }, // Add route for ProductDetailsComponent reached by /products/:id
-  { path: 'search/:keyword', component: ProductListComponent }, // Add route for ProductListComponent reached by /search/:keyword
-  { path: 'welcome', component: WelcomePageComponent }, // Add route for WelcomePageComponent reached by /welcome
-  { path: 'category/:id', component: ProductListComponent }, // Add route for ProductListComponent reach by /category/:id
-  { path: 'category', component: ProductListComponent }, // Add route for ProductListComponent reached by /category
-  { path: 'products', component: ProductListComponent }, // Add route for ProductListComponent reached by /products
-  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Redirect to /products when path is empty
-  { path: '**', redirectTo: '/products', pathMatch: 'full' }, // Redirect to /products when path is not found
+  },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'cart-details', component: CartDetailsComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'search/:keyword', component: ProductListComponent },
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'category/:id', component: ProductListComponent },
+  { path: 'category', component: ProductListComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
 
 @NgModule({

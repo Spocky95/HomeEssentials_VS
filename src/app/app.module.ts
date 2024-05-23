@@ -1,14 +1,13 @@
 // W tym fragmencie kodu mamy główny moduł Angulara o nazwie AppModule.
 // Moduł ten importuje różne inne moduły, komponenty i serwisy, które są używane w aplikacji.
 
-// Dekorator @NgModule określa metadane dla modułu.
+// NgModule jest kluczowym elementem architektury Angulara, który pozwala na organizację kodu w moduły.
 
 // Właściwość declarations zawiera listę komponentów, które są deklarowane w tym module.
 // Właściwość imports zawiera listę modułów, które są importowane do tego modułu.
 // Właściwość providers zawiera listę serwisów, które są dostarczane przez ten moduł.
 // Właściwość bootstrap zawiera listę komponentów, które są inicjalizowane, gdy aplikacja jest uruchamiana.
 
-// W konstruktorze wstrzykujemy zależność od HttpClient, który jest używany do wykonywania zapytań HTTP.
 import { NgModule } from '@angular/core';
 import {
   BrowserModule,
@@ -41,17 +40,17 @@ import { OktaAuthModule, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
-
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product.service';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
 export const environment = {
-  production: false, // Prod mode is disabled, prod mode is reducing logging messages, eliminates dead code etc.
+  production: false,// Ułatwia debugowanie aplikacji.
   homeessentialsApiUrl: 'https://localhost:4090/api',
 };
 
@@ -97,5 +96,3 @@ export const environment = {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-// 61268f18f7ae274990466782c0e92bbfbe3373a3
