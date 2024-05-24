@@ -132,15 +132,17 @@ export class ProductListComponent implements OnInit {
     // console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
   
     const theCartItem = new CartItem(theProduct);
-  
+    
     if (theCartItem) {
       // Sprawdź, czy produkt jest już w koszyku
       if (this.cartService.isProductInCart(theCartItem)) {
         this.toastr.info('Product is already in the cart.', 'Info');
-      } else {
+      } 
+      else {
         console.log('Units in stock for product ' + theCartItem.name + ': ' + theCartItem.unitsInStock + ' ' + theCartItem.quantity);
         if (theCartItem.unitsInStock > theCartItem.quantity) {
           this.cartService.addToCart(theCartItem);
+          this.toastr.success('Product added to the cart.', 'Success');
         } else {
           this.outOfStock = true;
           // console.error('Cannot add more units. Not enough stock.');
