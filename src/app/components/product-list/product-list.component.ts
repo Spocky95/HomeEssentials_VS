@@ -20,6 +20,7 @@ import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../common/cart-item';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -37,11 +38,13 @@ export class ProductListComponent implements OnInit {
   thePageSize: number = 12;
   theTotalElements: number = 0;
   previousKeyword: string = '';
+  outOfStock = false;
 
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr:ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -127,10 +130,28 @@ export class ProductListComponent implements OnInit {
 
   addToCart(theProduct: Product) {
     // console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
-
+  
     const theCartItem = new CartItem(theProduct);
-
-    this.cartService.addToCart(theCartItem);
+  
+    if (theCartItem) {
+      // Sprawdź, czy produkt jest już w koszyku
+      if (this.cartService.isProductInCart(theCartItem)) {
+        this.toastr.info('Product is already in the cart.', 'Info');
+      } else {
+        console.log('Units in stock for product ' + theCartItem.name + ': ' + theCartItem.unitsInStock + ' ' + theCartItem.quantity);
+        if (theCartItem.unitsInStock > theCartItem.quantity) {
+          this.cartService.addToCart(theCartItem);
+        } else {
+          this.outOfStock = true;
+          // console.error('Cannot add more units. Not enough stock.');
+          // alert('Cannot add more units. Not enough stock.')
+          console.log('When product is out of stock you can see this: ' + theCartItem.unitsInStock);
+          this.toastr.error('Cannot add more units. Not enough stock.', 'Error');
+        }
+      }
+    } else {
+      console.error('theCartItem is undefined');
+    }
   }
 
   

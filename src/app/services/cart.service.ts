@@ -10,11 +10,13 @@
 // Metoda addToCart() jest wywoływana z przekazanym elementem jako argument. W tym fragmencie kodu nie widać, co dalej dzieje się w tej metodzie.
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { CartItem } from '../common/cart-item';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+
   cartItems: any[] = [];
 
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
@@ -141,5 +143,18 @@ export class CartService {
 
   persistCartItems() {
     this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+  
+  isProductInCart(theCartItem: CartItem): boolean {
+    // Przyjmujemy, że `this.cartItems` to tablica elementów w koszyku
+    for (let item of this.cartItems) {
+      if (item.id === theCartItem.id) {
+        // Produkt jest już w koszyku
+        return true;
+      }
+    }
+  
+    // Produktu nie ma w koszyku
+    return false;
   }
 }
