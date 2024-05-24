@@ -45,6 +45,9 @@ import { ProductService } from './services/product.service';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { provideToastr } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -80,6 +83,7 @@ export const environment = {
     NgbModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ProductService,
@@ -91,6 +95,7 @@ export const environment = {
     },
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideToastr(),
   ],
 
   bootstrap: [AppComponent],

@@ -16,6 +16,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../common/cart-item';
 import { Product } from '../../common/product';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-cart-details',
   templateUrl: './cart-details2.component.html',
@@ -35,7 +36,7 @@ export class CartDetailsComponent implements OnInit {
   totalPrice = 0;
   totalQuantity = 0;
   // Wstrzykiwanie zależności CartService
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private toastr:ToastrService) {}
   // Metoda cyklu życia wywoływana po utworzeniu komponentu
   ngOnInit(): void {
     this.listCartDetails();
@@ -72,6 +73,7 @@ export class CartDetailsComponent implements OnInit {
         // console.error('Cannot add more units. Not enough stock.');
         // alert('Cannot add more units. Not enough stock.')
         console.log('When product is out of stock you can see this: ' + theCartItem.unitsInStock);
+        this.toastr.error('Cannot add more units. Not enough stock.', 'Error');
       }
     } else {
       console.error('theCartItem is undefined');
