@@ -12,6 +12,8 @@ export class CartItem {
   public imageUrl: string = '';
   public unitPrice: number = 0;
   public quantity: number = 0;
+  public unitsInStock: number = 0;
+  public outOfStock: boolean = false;
 
   constructor(product: Product) {
     this.id = String(product.id);
@@ -19,5 +21,8 @@ export class CartItem {
     this.imageUrl = product.imageUrl;
     this.unitPrice = product.unitPrice;
     this.quantity = 1;
+    this.unitsInStock = product.unitsInStock;
+    this.outOfStock = product.unitsInStock === 0;
+    console.log(' this.unitsInStock ><><><><>' + this.name + ': ' + this.unitsInStock);
   }
 }

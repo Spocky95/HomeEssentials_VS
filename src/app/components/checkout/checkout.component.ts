@@ -145,22 +145,22 @@ export class CheckoutComponent implements OnInit {
     });
     // wypełnij miesiące kart kredytowych
     const startMonth: number = new Date().getMonth() + 1;
-    console.log('startMonth: ' + startMonth);
+    // console.log('startMonth: ' + startMonth);
 
     this.checkoutFormService
       .getCreditCardMonths(startMonth)
       .subscribe((data) => {
-        console.log('Retrieved credit card months: ' + JSON.stringify(data));
+        // console.log('Retrieved credit card months: ' + JSON.stringify(data));
         this.creditCardMonths = data;
       });
 
     this.checkoutFormService.getCreditCardYears().subscribe((data) => {
-      console.log('Retrieved credit card years: ' + JSON.stringify(data));
+      // console.log('Retrieved credit card years: ' + JSON.stringify(data));
       this.creditCardYears = data;
     });
 
     this.checkoutFormService.getCountries().subscribe((data) => {
-      console.log('Retrieved countries: ' + JSON.stringify(data));
+      // console.log('Retrieved countries: ' + JSON.stringify(data));
       this.countries = data;
       // this.checkoutFormGroup.get('shippingAddress')?.get('country')?.setValue(data[0]);
     });
@@ -251,7 +251,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Handling the submit button');
+    // console.log('Handling the submit button');
     // console.log(this.checkoutFormGroup.get('customer')!.value);
     // console.log('Shipping Address: ' + this.checkoutFormGroup.get('shippingAddress')!.value);
     // console.log("The shipping address country is " + this.checkoutFormGroup.get('shippingAddress')!.value.country.name);
@@ -346,7 +346,7 @@ export class CheckoutComponent implements OnInit {
     this.checkoutFormService
       .getCreditCardMonths(startMonth)
       .subscribe((data) => {
-        console.log('Retrieved credit card months: ' + JSON.stringify(data));
+        // console.log('Retrieved credit card months: ' + JSON.stringify(data));
         this.creditCardMonths = data;
       });
   }
@@ -355,8 +355,8 @@ export class CheckoutComponent implements OnInit {
     const formGroup = this.checkoutFormGroup.get(formGroupName);
     const countryCode = formGroup?.value.country.code;
     const countryName = formGroup?.value.country.name;
-    console.log(`${formGroupName} country code: ${countryCode}`);
-    console.log(`${formGroupName} country name: ${countryName}`);
+    // console.log(`${formGroupName} country code: ${countryCode}`);
+    // console.log(`${formGroupName} country name: ${countryName}`);
 
     this.checkoutFormService.getStates(countryCode).subscribe((data) => {
       if (formGroupName === 'shippingAddress') {

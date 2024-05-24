@@ -1,17 +1,23 @@
-
 <div class="container-fluid my-0 mx-0 mt-4">
   <nav class="row">
     <ul class="col" style="display: flex; flex-direction: row; flex-wrap: wrap;">
-      <li *ngFor="let tempProductCategory of productCategories">
+      <li *ngFor="let i of productCategoryList">
         <a
           class="nav-link"
-          routerLink="/category/{{ tempProductCategory.id }}"
+          routerLink="/category/{{ i.id }}"
           routerLink="active-link"
         >
-          {{ tempProductCategory.categoryName }}
+          {{ i.categoryName }}
         </a>
       </li>
     </ul>
   </nav>
 </div>
+
+
+
+
+
+
+
 

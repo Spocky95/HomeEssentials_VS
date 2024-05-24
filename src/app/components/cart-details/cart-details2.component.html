@@ -47,6 +47,9 @@
                 +
               </button>
             </div>
+            <div *ngIf="outOfStock" class="out-of-stock-message">
+              Cannot add more units. Not enough stock.
+            </div>
             <div class="">
               <button
                 (click)="remove(tempCartItem)"

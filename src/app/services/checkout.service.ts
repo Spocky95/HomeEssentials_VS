@@ -17,9 +17,16 @@ import { environment } from '../app.module';
 })
 export class CheckoutService {
   private purchaseUrl = environment.homeessentialsApiUrl + '/checkout/purchase';
+  private productUrl = environment.homeessentialsApiUrl + '/products';
 
   constructor(private httpClient: HttpClient) {}
+  
+  checkProductsAvailability(purchase: Purchase): Observable<any> {
+    return this.httpClient.post<Purchase>(this.purchaseUrl + '/availability', purchase);
+  }
+
   placeOrder(purchase: Purchase): Observable<any> {
     return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
   }
+  
 }

@@ -15,12 +15,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../common/cart-item';
+import { Product } from '../../common/product';
 @Component({
   selector: 'app-cart-details',
   templateUrl: './cart-details2.component.html',
   styleUrl: './cart-details.component.css',
 })
 export class CartDetailsComponent implements OnInit {
+
+
+  
+
+  outOfStock = false;
+
+
   // Tablica do przechowywania elementów koszyka
   cartItems: CartItem[] = [];
   // Zmienne do przechowywania całkowitej ceny i ilości
@@ -44,13 +52,34 @@ export class CartDetailsComponent implements OnInit {
 
     this.cartService.computeCartTotals();
   }
+  // incrementUnits(theCartItem: CartItem) {
+  //   if (theCartItem) {
+  //     this.cartService.addToCart(theCartItem);
+  //     // console.log('incrementUnits' + this.totalQuantity + ' ' + this.totalPrice);
+  //     console.log('available in stock' + theCartItem.unitsInStock);
+  //   } else {
+  //     console.error('theCartItem is undefined');
+  //   }
+  // }
+
   incrementUnits(theCartItem: CartItem) {
     if (theCartItem) {
-      this.cartService.addToCart(theCartItem);
+      console.log('Units in stock for product ' + theCartItem.name + ': ' + theCartItem.unitsInStock);
+      if (theCartItem.unitsInStock > theCartItem.quantity) {
+        this.cartService.addToCart(theCartItem);
+      } else {
+        this.outOfStock = true;
+        // console.error('Cannot add more units. Not enough stock.');
+        // alert('Cannot add more units. Not enough stock.')
+        console.log('When product is out of stock you can see this: ' + theCartItem.unitsInStock);
+      }
     } else {
       console.error('theCartItem is undefined');
     }
   }
+
+
+
   decrementUnits(theCartItem: CartItem) {
     this.cartService.deleteFromCart(theCartItem);
   }

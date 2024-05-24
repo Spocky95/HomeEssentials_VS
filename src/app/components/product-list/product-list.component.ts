@@ -23,9 +23,7 @@ import { CartItem } from '../../common/cart-item';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list-grid2.component.html',
-  // templateUrl: './product-list-table.component.html',
-  // templateUrl: './product-list.component.html',
+  templateUrl: './products-grid.component.html',
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent implements OnInit {
@@ -34,12 +32,10 @@ export class ProductListComponent implements OnInit {
   currentCategoryId: number = 1;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
-
   //pagination properties
   thePageNumber: number = 1;
   thePageSize: number = 12;
   theTotalElements: number = 0;
-
   previousKeyword: string = '';
 
   constructor(
@@ -72,25 +68,16 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryId = 1;
     }
 
-    // Check if we have a different category than previous
-    // if we have a different category id than previous
-    // then set thePageNumber back to 1
+
     if (this.previousCategoryId != this.currentCategoryId) {
       this.thePageNumber = 1;
     }
     this.previousCategoryId = this.currentCategoryId;
 
-    console.log(
-      `currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`
-    );
-    // if (this.currentCategoryId != 1) {
-    //   this.productService.getProductListPaginate(this.thePageNumber - 1,
-    //                                             this.thePageSize,
-    //                                             this.currentCategoryId)
-    //                                             .subscribe(this.processResult());
-    // }
+    // console.log(
+    //   `currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`
+    // );
 
-    // Spring - zero based page index
     this.productService
       .getProductListPaginate(
         this.thePageNumber - 1,
@@ -98,7 +85,6 @@ export class ProductListComponent implements OnInit {
         this.currentCategoryId
       )
       .subscribe((data) => {
-        // Angular - one based page index
         this.products = data._embedded.products;
         this.thePageNumber = data.page.number + 1;
         this.thePageSize = data.page.size;
@@ -113,7 +99,7 @@ export class ProductListComponent implements OnInit {
       this.thePageNumber = 1;
     }
     this.previousKeyword = theKeyword;
-    console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
+    // console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
 
     this.productService
       .searchProductsPaginate(
@@ -140,10 +126,12 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(theProduct: Product) {
-    console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
+    // console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
 
     const theCartItem = new CartItem(theProduct);
 
     this.cartService.addToCart(theCartItem);
   }
+
+  
 }
