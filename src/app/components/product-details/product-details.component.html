@@ -1,22 +1,32 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img *ngIf="product" src="{{product.imageUrl}}" class="img-responsive" style="width: 100%; height: 250px; object-fit: contain;" alt="">
-        </div>
-
-        <div class="col-md-6">
-            <h2 *ngIf="product">{{product.name}}</h2>
-            <h3 *ngIf="product">{{product.unitPrice| currency:'USD'}}</h3>
-            <p>Short description of the product.</p>
-            <div *ngIf="product">
-                <div *ngIf="product.active">
-                    <button (click)="addToCart()" class="btn btn-primary">Add to Cart</button>
-                </div>
-                <div *ngIf="!product.active">
-                    <button class="btn btn-secondary">Out of Stock</button>
-                </div>
-            </div>
-        </div>
+<div class="container main">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        *ngIf="product"
+        src="{{ product.imageUrl }}"
+        class="img-responsive"
+        style="width: 100%; height: 250px; object-fit: contain"
+        alt=""
+      />
     </div>
-    <a routerLink="/products">Back</a>
+
+    <div class="col-md-6">
+      <h2 *ngIf="product">{{ product.name }}</h2>
+      <h3 *ngIf="product">{{ product.unitPrice | currency : "USD" }}</h3>
+      <p>Short description of the product.</p>
+      <div *ngIf="product">
+        <div *ngIf="product.active">
+          <button (click)="addToCart()" class="btn btn-sm add-to-cart-button">
+            Add to Cart
+          </button>
+        </div>
+        <div *ngIf="!product.active">
+          <button class="btn btn-secondary">Out of Stock</button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-start">
+      <button routerLink="/products" class="btn btn-outline-back my-3"><strong>BACK</strong></button>
+    </div>
+  </div>
 </div>

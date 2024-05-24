@@ -1,26 +1,23 @@
-<!-- <div class="container my-3 mx-0">
-    <div class="row"> 
-        <div class="col" style="display: flex; flex-direction: row;">
-            <a class="nav-link px-5" href="#"></a>
-            <a class="nav-link px-5" routerLink="/home" routerLinkActive="active-link">Home</a>
-            <a class="nav-link px-5" routerLink="/category/1" routerLinkActive="active-link">Books</a>
-            <a class="nav-link px-5" routerLink="/category/2" routerLinkActive="active-link">Night Lights</a>
-            <a class="nav-link px-5" routerLink="/category/3" routerLinkActive="active-link">Blankets</a>
-        </div>
-    </div>
-</div> -->
-
-<!-- Dynamicznie generowane menu kategorii produktów -->
-Dynamicznie generowane menu kategorii produktów
-<div class="container my-3 mx-0">
-    <nav class="row">
-        <ul class="col" style="display: flex; flex-direction: row;">
-            <li *ngFor="let tempProductCategory of productCategories">
-                <a class="nav-link px-5" routerLink="/category/{{tempProductCategory.id}}" routerLink="active-link">
-                    {{tempProductCategory.categoryName}}
-                </a>
-            </li>
-        </ul>
-    </nav>
+<div class="container-fluid my-0 mx-0 mt-4">
+  <nav class="row">
+    <ul class="col" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+      <li *ngFor="let i of productCategoryList">
+        <a
+          class="nav-link"
+          routerLink="/category/{{ i.id }}"
+          routerLink="active-link"
+        >
+          {{ i.categoryName }}
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
+
+
+
+
+
+
+
 

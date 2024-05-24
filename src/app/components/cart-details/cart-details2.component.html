@@ -1,0 +1,94 @@
+<hr />
+<div class="main" *ngIf="cartItems.length > 0">
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total Price & Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tempCartItem of cartItems" class="text-center">
+        <td>
+          <img
+            *ngIf="tempCartItem"
+            src="{{ tempCartItem.imageUrl }}"
+            class="img-responsive"
+            style="width: 100%; height: 250px; object-fit: contain"
+            alt=""
+          />
+        </td>
+        <td>
+          {{ tempCartItem.name }}
+        </td>
+        <td>
+          {{ tempCartItem.unitPrice | currency : "USD" }}
+        </td>
+        <td class="">
+          Total Price:
+          {{
+            tempCartItem.quantity * tempCartItem.unitPrice | currency : "USD"
+          }}
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button
+                (click)="decrementUnits(tempCartItem)"
+                class="btn btn btn-outline-success decrement"
+              >
+                -
+              </button>
+              <p class="quant">Quantity: {{ tempCartItem.quantity }}</p>
+              <button
+                (click)="incrementUnits(tempCartItem)"
+                class="btn btn btn-outline-success increment"
+              >
+                +
+              </button>
+            </div>
+            <div class="">
+              <button
+                (click)="remove(tempCartItem)"
+                class="btn btn-outline-danger"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="order-summarize-table">
+    <thead class="ms-5">
+      <tr class="">
+        <th>Total Price:</th>
+        <th>Total Quantity:</th>
+        <th>Shipping</th>
+        <th>Tax:</th>
+        <th>Grand Total:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ totalPrice | currency : "USD" }}</td>
+        <td>{{ totalQuantity }}</td>
+        <td>FREE</td>
+        <td>{{ totalPrice * 0.23 | currency : "USD" }}</td>
+        <td>{{ totalPrice + totalPrice * 0.1 | currency : "USD" }}</td>
+        <td class="btn-login-desktop">
+          <button routerLink="/checkout" class="btn btn-login">Checkout</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button routerLink="/checkout" class="btn btn-login btn-mobile">Checkout</button>
+<div *ngIf="cartItems.length == 0">
+  <div class="main">
+    <div class="text-center my-5 alert alert-light">
+      <h3>Your cart is empty!</h3>
+    </div>
+  </div>
+</div>

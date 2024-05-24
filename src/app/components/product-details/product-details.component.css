@@ -1,0 +1,28 @@
+.main{
+    margin-top: 50px;
+    min-height: calc(100vh - 250px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.add-to-cart-button {
+  margin-top: 0px;
+  border: 0;
+  background-color: #06413d;
+  border: 1px solid black;
+  height: 31px;
+  color: white;
+}
+
+.btn-outline-back {
+    color: #06413d;
+    margin-top: 50px;
+
+}
+.btn-outline-back:hover {
+    color: #906d32;
+    border-color: gray;
+  }

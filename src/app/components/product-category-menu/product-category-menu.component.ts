@@ -5,25 +5,23 @@ import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-product-category-menu',
   templateUrl: './product-category-menu.component.html',
-  styleUrl: './product-category-menu.component.css'
+  styleUrl: './product-category-menu.component.css',
 })
-export class ProductCategoryMenuComponent implements OnInit{
+export class ProductCategoryMenuComponent implements OnInit {
+  productCategoryList: ProductCategory[] = [];
 
-  productCategories: ProductCategory[] = []; // ProductCategory[] is an array of ProductCategory objects
-
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.listProductCategories();
   }
-
-  listProductCategories() {
-    this.productService.getProductCategories().subscribe(
-      data => { 
-        console.log('Product Categories=' + JSON.stringify(data));
-        this.productCategories = data;
-      }
-    );
-  }
   
+  listProductCategories() {
+    this.productService.getProductCategories().subscribe((data) => {
+      this.productCategoryList = data;
+    });
+  }
 }
+
+
+
