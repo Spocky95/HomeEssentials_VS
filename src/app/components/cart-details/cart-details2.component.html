@@ -39,7 +39,7 @@
               >
                 -
               </button>
-              <p class="quant">Quantity: {{ tempCartItem.quantity }}</p>
+              <p class="quant">Quantity: {{ tempCartItem.quantity }}/{{tempCartItem.unitsInStock}}</p>
               <button
                 (click)="incrementUnits(tempCartItem)"
                 class="btn btn btn-outline-success increment"
