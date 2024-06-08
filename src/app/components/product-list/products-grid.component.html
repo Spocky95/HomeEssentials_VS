@@ -6,8 +6,11 @@
         <a routerLink="/products/{{ tempProduct.id }}">
           <img
             src="{{ tempProduct.imageUrl }}"
+            loading="lazy"
             class="img-responsive"
-            style="width: 100%; height: auto; object-fit: contain"
+            style="object-fit: contain"
+            width="100%"
+            height="auto"
             alt=""
           />
         </a>

@@ -53,7 +53,7 @@ const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
 export const environment = {
-  production: false,// Ułatwia debugowanie aplikacji.
+  production: true,// Ułatwia debugowanie aplikacji.
   homeessentialsApiUrl: 'https://localhost:4090/api',
 };
 
