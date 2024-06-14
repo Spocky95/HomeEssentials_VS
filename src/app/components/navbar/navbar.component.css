@@ -12,6 +12,14 @@
   border-bottom: 2px solid #ccc;
 }
 
+.logo {
+  object-fit: cover;
+  object-position: center;
+  height: 50px;
+  width: 275px;
+  min-width: 275px;
+}
+
 @media (max-width: 867px) {
   .base-nav-class {
     display: flex;
